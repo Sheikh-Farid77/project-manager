@@ -55,6 +55,7 @@ export default function AddTaskModal({ onCloseModal, onAddProject }) {
                   id="description"
                   name="description"
                   rows="3"
+                  required
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 ></textarea>
               </div>
@@ -71,6 +72,7 @@ export default function AddTaskModal({ onCloseModal, onAddProject }) {
                   type="date"
                   id="dueDate"
                   name="dueDate"
+                  required
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
@@ -87,6 +89,7 @@ export default function AddTaskModal({ onCloseModal, onAddProject }) {
                   value={project.category}
                   id="category"
                   name="category"
+                  required
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   <option value="">Category</option>
