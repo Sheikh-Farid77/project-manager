@@ -1,6 +1,7 @@
 import Aside from "./Aside"
 import Header from "./Header"
 import Board from "./Board"
+import AddTaskModal from "./projectBoard/AddTaskModal"
 
 
 function App() {
