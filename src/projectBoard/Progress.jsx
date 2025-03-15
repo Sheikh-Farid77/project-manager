@@ -1,4 +1,4 @@
-export default function Progress({ projects, onDelete }) {
+export default function Progress({ projects, onDelete, onEdit }) {
   const progressProjects = projects.filter((p) => p.category == "inprogress");
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
@@ -56,7 +56,7 @@ export default function Progress({ projects, onDelete }) {
                   <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                 </svg>
                </button>
-                <button>
+                <button onClick={()=> onEdit(p)}>
                 <svg
                   className="h-4 w-4 cursor-pointer text-zinc-300"
                   fill="none"

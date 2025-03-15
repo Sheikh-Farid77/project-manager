@@ -1,4 +1,4 @@
-export default function Revise({ projects, onDelete }) {
+export default function Revise({ projects, onDelete, onEdit }) {
   const reviseProjects = projects.filter((p) => p.category == "revised");
 
   return (
@@ -54,7 +54,7 @@ export default function Revise({ projects, onDelete }) {
                   <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                 </svg>
                 </button>
-                <button>
+                <button onClick={()=> onEdit(p)}>
                 <svg
                   className="h-4 w-4 cursor-pointer text-zinc-300"
                   fill="none"

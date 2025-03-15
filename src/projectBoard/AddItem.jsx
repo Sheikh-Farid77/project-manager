@@ -1,22 +1,15 @@
-import { useState } from "react";
+
 import AddTaskModal from "./AddTaskModal";
 
-export default function AddItem({ onAddProject }) {
-  const [openModal, setOpenModal] = useState(false);
+export default function AddItem({ onAddProject, handleOpenModal, handleCloseModal, openModal, editProject }) {
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
   return (
     <>
       {openModal && (
         <AddTaskModal
           onAddProject={onAddProject}
           onCloseModal={handleCloseModal}
+          editProject = {editProject}
         />
       )}
 

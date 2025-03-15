@@ -1,4 +1,4 @@
-export default function Done({ projects, onDelete }) {
+export default function Done({ projects, onDelete, onEdit }) {
   const doneProjects = projects.filter((p) => p.category == "done");
 
   return (
@@ -58,7 +58,7 @@ export default function Done({ projects, onDelete }) {
                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                   </svg>
                  </button>
-                  <button>
+                  <button onClick={()=> onEdit(p)}>
                   <svg
                     className="h-4 w-4 cursor-pointer text-zinc-300"
                     fill="none"

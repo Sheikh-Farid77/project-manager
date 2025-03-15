@@ -1,13 +1,15 @@
 import { useState } from "react";
 
-export default function AddTaskModal({ onCloseModal, onAddProject }) {
-  const [project, setProject] = useState({
+export default function AddTaskModal({ onCloseModal, onAddProject, editProject }) {
+  const [project, setProject] = useState(editProject ?? {
     id: crypto.randomUUID(),
     taskName: "",
     description: "",
     dueDate: "",
     category: "",
   });
+
+  const [isAdd] = useState(Object.is(editProject, null))
 
   const handleChange = (e) => {
     setProject({
@@ -22,7 +24,9 @@ export default function AddTaskModal({ onCloseModal, onAddProject }) {
         <div className="bg-gray-900 shadow-md dark:bg-[#12141D] rounded-2xl sm:grid sm:grid-cols-[2fr_1fr] overflow-hidden">
           <div className="p-6">
             <h2 className="mb-6 text-2xl font-bold text-green-400">
-              Create Task
+              {
+                isAdd ? 'Create Task' : 'Update Task'
+              }
             </h2>
             <form>
               <div className="mb-4">
@@ -111,7 +115,7 @@ export default function AddTaskModal({ onCloseModal, onAddProject }) {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    onAddProject(project);
+                    onAddProject(project, isAdd);
                   }}
                   type="submit"
                   className="rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800"
